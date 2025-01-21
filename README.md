@@ -17,7 +17,7 @@ const markdownSource = `# title
   ![some image alt](image.png)
 `;
 
-const html = parse(makdownSource);
+const html = parse(markdownSource);
 
 console.log(html)
 /*
