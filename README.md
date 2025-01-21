@@ -5,11 +5,18 @@ Example:
 ```javascript
 import { parse } from '@web-alchemy/markdown-wasm';
 
-const makdownSource = `# title
+const markdownSource = `# title
   Some text
   
   ![some image alt](image.png)
 `;
 
-const html = parse(makdownSource)
+const html = parse(makdownSource);
+
+console.log(html)
+/*
+<h1>title</h1>
+  <p>Some text</p>
+  <p><img src="image.png" alt="some image alt" /></p>
+*/
 ```
