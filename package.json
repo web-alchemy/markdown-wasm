@@ -4,5 +4,8 @@
     "test": "node --test",
     "pack": "wasm-pack pack",
     "publish": "wasm-pack publish --access=public"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.13.1"
   }
 }
