@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "node --test",
+    "build": "wasm-pack build --target nodejs --scope web-alchemy",
+    "pack": "wasm-pack pack",
+    "publish": "wasm-pack publish"
+  }
+}

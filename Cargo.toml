@@ -1,0 +1,15 @@
+[package]
+name = "markdown-wasm"
+version = "0.0.0"
+description = "WebAssembly build of rust lib `pulldown-cmark` for Node.js"
+license = "MIT"
+edition = "2021"
+repository = "https://github.com/web-alchemy/markdown-wasm"
+keywords = ["webassembly", "rust", "markdown"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pulldown-cmark = "0.12.2"
+wasm-bindgen = "0.2.100"
