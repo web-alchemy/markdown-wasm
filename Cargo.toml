@@ -1,6 +1,6 @@
 [package]
 name = "markdown-wasm"
-version = "0.0.1"
+version = "0.0.2"
 description = "WebAssembly build of rust lib `pulldown-cmark` for Node.js"
 license = "MIT"
 edition = "2021"
