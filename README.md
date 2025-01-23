@@ -53,6 +53,12 @@ const html = parse(source, flags);
 */
 ```
 
+## Benchmark
+
+Results of [benchmark](https://github.com/rsms/markdown-wasm) (ops/s):
+
+![benchmark](images/benchmark.svg)
+
 ## Development
 
 - Install [Node.js](https://nodejs.org/)
