@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { parse } from '../pkg/markdown_wasm.js'
+import { parse, Flags } from '../pkg/markdown_wasm.js'
 
 const readFixtureFile = (fileName) => {
   const file = new URL('./fixtures/' + fileName, import.meta.url)
@@ -68,8 +68,26 @@ test('should render html', () => {
 })
 
 test('should render utf-8 and emoji', () => {
-  const source = `Hello, 😀👋!!!`
+  const source = `Hello 👋, λ 😀 !!!`
   const expected = `<p>${source}</p>\n`
   const html = parse(source)
+  assert.equal(html, expected)
+})
+
+test('should render heading with attributes', () => {
+  const source = readFixtureFile('flags.md')
+  const FLAGS = new Flags()
+  const flags = FLAGS.ENABLE_HEADING_ATTRIBUTES | FLAGS.ENABLE_TASKLISTS
+  const html = parse(source, flags)
+  const expected = `<h1 id="id1">Example 1</h1>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+check 1</li>
+<li><input disabled="" type="checkbox" checked=""/>
+check 2</li>
+<li><input disabled="" type="checkbox"/>
+check 3</li>
+</ul>
+`
   assert.equal(html, expected)
 })

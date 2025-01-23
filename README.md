@@ -27,6 +27,32 @@ console.log(html)
 */
 ```
 
+## Using non standard features
+
+You can use additional (non CommonMark)  [features via `Options`](https://docs.rs/pulldown-cmark/latest/pulldown_cmark/struct.Options.html). They work as bit masks.
+
+```javascript
+import { parse, Flags } from '@web-alchemy/markdown-wasm';
+
+const source = `# my todo list { #list-id-1 .list-class }
+- [x] check 1
+- [x] check 2
+- [ ] check 3
+`;
+
+const FLAGS = new Flags();
+const flags = FLAGS.ENABLE_HEADING_ATTRIBUTES | FLAGS.ENABLE_TASKLISTS;
+const html = parse(source, flags);
+/*
+<h1 id="id1">Example 1</h1>
+<ul>
+  <li><input disabled="" type="checkbox" checked=""/>  check 1</li>
+  <li><input disabled="" type="checkbox" checked=""/> check 2</li>
+  <li><input disabled="" type="checkbox"/> check 3</li>
+</ul>
+*/
+```
+
 ## Development
 
 - Install [Node.js](https://nodejs.org/)
