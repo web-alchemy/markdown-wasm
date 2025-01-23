@@ -34,7 +34,7 @@ You can use additional (non CommonMark)  [features via `Options`](https://docs.r
 ```javascript
 import { parse, Flags } from '@web-alchemy/markdown-wasm';
 
-const source = `# my todo list { #list-id-1 .list-class }
+const source = `# my todo list { #list-head-id .head-class }
 - [x] check 1
 - [x] check 2
 - [ ] check 3
@@ -44,7 +44,7 @@ const FLAGS = new Flags();
 const flags = FLAGS.ENABLE_HEADING_ATTRIBUTES | FLAGS.ENABLE_TASKLISTS;
 const html = parse(source, flags);
 /*
-<h1 id="id1">Example 1</h1>
+<h1 id="list-head-id" class="head-class">my todo list</h1>
 <ul>
   <li><input disabled="" type="checkbox" checked=""/>  check 1</li>
   <li><input disabled="" type="checkbox" checked=""/> check 2</li>

@@ -79,7 +79,7 @@ test('should render heading with attributes', () => {
   const FLAGS = new Flags()
   const flags = FLAGS.ENABLE_HEADING_ATTRIBUTES | FLAGS.ENABLE_TASKLISTS
   const html = parse(source, flags)
-  const expected = `<h1 id="id1">Example 1</h1>
+  const expected = `<h1 id="id1" class="class">Example 1</h1>
 <ul>
 <li><input disabled="" type="checkbox" checked=""/>
 check 1</li>
