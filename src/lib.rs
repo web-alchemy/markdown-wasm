@@ -4,6 +4,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 #[allow(non_snake_case)]
 pub struct Flags {
+    pub ENABLE_ALL:                              u32,
     pub ENABLE_TABLES:                           u32,
     pub ENABLE_FOOTNOTES:                        u32,
     pub ENABLE_STRIKETHROUGH:                    u32,
@@ -23,6 +24,7 @@ impl Flags {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Flags {
         Flags {
+            ENABLE_ALL:                              Options::all().bits(),
             ENABLE_TABLES:                           Options::ENABLE_TABLES.bits(),
             ENABLE_FOOTNOTES:                        Options::ENABLE_FOOTNOTES.bits(),
             ENABLE_STRIKETHROUGH:                    Options::ENABLE_STRIKETHROUGH.bits(),

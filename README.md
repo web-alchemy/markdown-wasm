@@ -53,6 +53,8 @@ const html = parse(source, flags);
 */
 ```
 
+You can enable all feautures with `FLAGS.ENABLE_ALL` flag.
+
 ## Benchmark
 
 Results of [benchmark](https://github.com/rsms/markdown-wasm) (ops/s):
