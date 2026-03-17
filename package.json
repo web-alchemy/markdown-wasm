@@ -7,5 +7,10 @@
   },
   "devDependencies": {
     "wasm-pack": "^0.14.0"
+  },
+  "overrides": {
+    "tar": "7.5.11",
+    "axios": "0.30.0",
+    "minimatch": "3.1.3"
   }
 }
