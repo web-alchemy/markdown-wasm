@@ -1,16 +1,43 @@
 {
+  "name": "@web-alchemy/markdown-wasm",
+  "version": "0.0.5",
+  "description": "WebAssembly build of rust lib `pulldown-cmark` for Node.js",
+  "main": "./pkg/nodejs/markdown_wasm.js",
+  "exports": {
+    "node": {
+      "require": "./pkg/nodejs/markdown_wasm.js",
+      "import": "./pkg/module/markdown_wasm.js"
+    },
+    "default": "./pkg/bundler/markdown_wasm.js"
+  },
   "scripts": {
-    "build": "wasm-pack build --target nodejs --scope web-alchemy",
-    "test": "node --test",
-    "pack": "wasm-pack pack",
-    "publish": "wasm-pack publish --access=public"
+    "build:wasm": "cargo build --target wasm32-unknown-unknown --release",
+    "build:nodejs": "wasm-bindgen target/wasm32-unknown-unknown/release/markdown_wasm.wasm --out-dir ./pkg/nodejs --target nodejs",
+    "build:deno": "wasm-bindgen target/wasm32-unknown-unknown/release/markdown_wasm.wasm --out-dir ./pkg/deno --target deno",
+    "build:bundler": "wasm-bindgen target/wasm32-unknown-unknown/release/markdown_wasm.wasm --out-dir ./pkg/bundler --target bundler",
+    "build:web": "wasm-bindgen target/wasm32-unknown-unknown/release/markdown_wasm.wasm --out-dir ./pkg/web --target web",
+    "build:module": "wasm-bindgen target/wasm32-unknown-unknown/release/markdown_wasm.wasm --out-dir ./pkg/module --target module",
+    "build": "npm run build:wasm && npm run build:nodejs && npm run build:deno && npm run build:bundler && npm run build:web && npm run build:module",
+    "test": "node --test"
   },
-  "devDependencies": {
-    "wasm-pack": "^0.14.0"
+  "publishConfig": {
+    "access": "public"
   },
-  "overrides": {
-    "tar": "7.5.11",
-    "axios": "0.30.0",
-    "minimatch": "3.1.3"
-  }
+  "files": [
+    "pkg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-alchemy/markdown-wasm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/web-alchemy/markdown-wasm/issues"
+  },
+  "homepage": "https://github.com/web-alchemy/markdown-wasm#readme",
+  "keywords": [
+    "webassembly",
+    "rust",
+    "markdown"
+  ],
+  "license": "MIT"
 }

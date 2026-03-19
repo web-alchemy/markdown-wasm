@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { parse, Flags } from '../pkg/markdown_wasm.js'
+import { parse, Flags } from '../pkg/nodejs/markdown_wasm.js'
 
 const readFixtureFile = (fileName) => {
   const file = new URL('./fixtures/' + fileName, import.meta.url)

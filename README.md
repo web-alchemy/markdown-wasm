@@ -63,8 +63,8 @@ Results of [benchmark](https://github.com/rsms/markdown-wasm) (ops/s):
 
 ## Development
 
-- Install [Node.js](https://nodejs.org/)
-- Install dev dependencies - `npm ci`.
-- Modify source code in `src` folder and write tests in `test` folder.
-- Create build - `node --run build`. `pkg` folder should contains npm package files.
+- Install [Node.js](https://nodejs.org/) and [Rust](https://rust-lang.org/tools/install/)
+- Install wasm-bindgen-cli: `cargo install wasm-bindgen-cli`.
+- Modify source code in `src` folder and write tests in `__tests__` folder.
+- Create build - `node --run build`. `pkg` folder should contains wasm and javascript files.
 - Run tests - `node --run test`.
