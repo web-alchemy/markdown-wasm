@@ -17,6 +17,9 @@ pub struct Flags {
     pub ENABLE_MATH:                             u32,
     pub ENABLE_GFM:                              u32,
     pub ENABLE_DEFINITION_LIST:                  u32,
+    pub ENABLE_SUPERSCRIPT:                      u32,
+    pub ENABLE_SUBSCRIPT:                        u32,
+    pub ENABLE_WIKILINKS:                        u32,
 }
 
 #[wasm_bindgen]
@@ -37,6 +40,9 @@ impl Flags {
             ENABLE_MATH:                             Options::ENABLE_MATH.bits(),
             ENABLE_GFM:                              Options::ENABLE_GFM.bits(),
             ENABLE_DEFINITION_LIST:                  Options::ENABLE_DEFINITION_LIST.bits(),
+            ENABLE_SUPERSCRIPT:                      Options::ENABLE_SUPERSCRIPT.bits(),
+            ENABLE_SUBSCRIPT:                        Options::ENABLE_SUBSCRIPT.bits(),
+            ENABLE_WIKILINKS:                        Options::ENABLE_WIKILINKS.bits()
         }
     }
 }
